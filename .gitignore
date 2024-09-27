@@ -1,66 +1,98 @@
-# OSX
-#
-.DS_Store
+# Let's generate a full .gitignore file for a React Native project with TypeScript.
 
-# Xcode
-#
+gitignore_content = """
+# React Native
+node_modules/
+.buckconfig
+.gradle/
+.idea/
+.packages
+.flowconfig
+.eslintcache
+.jest/
 build/
-*.pbxuser
-!default.pbxuser
-*.mode1v3
-!default.mode1v3
-*.mode2v3
-!default.mode2v3
-*.perspectivev3
-!default.perspectivev3
-xcuserdata
-*.xccheckout
-*.moved-aside
-DerivedData
+DerivedData/
+*.xcodeproj/
+*.xcworkspace/
+*.xcuserdata/
+*.lock
+Pods/
 *.hmap
 *.ipa
-*.xcuserstate
-ios/.xcode.env.local
+*.app
+*.dSYM/
+*.log
+*.tflite
+*.env
 
-# Android/IntelliJ
-#
-build/
-.idea
-.gradle
-local.properties
+# TypeScript
+*.tsbuildinfo
+*.tslint
+tsconfig.json
+
+# iOS
+ios/Pods/
+ios/Podfile.lock
+ios/build/
+ios/*.pbxproj
+ios/DerivedData/
+*.xcodeproj/*
+!ios/*.xcodeproj/project.pbxproj
+ios/xcuserdata
+ios/*.xcworkspace/contents.xcworkspacedata
+ios/*.xcworkspace/xcuserdata
+
+# Android
+android/.gradle/
+android/build/
+android/.idea/
+android/local.properties
+android/app/debug.keystore
+android/app/build/
+
+# Fastlane
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots
+fastlane/test_output
+
+# Other
+*.log
+*.lock
+*.pnp.js
+.pnp/
+*.expo
 *.iml
-*.hprof
-.cxx/
-*.keystore
-!debug.keystore
+*.DS_Store
+*.pug
+*.bak
+*.rej
+*.swp
+*.swo
+*.tmp
+.vscode/
+.env.*
+*.log.*
+*.zip
+*.pem
+*.crt
+*.key
 
-# node.js
-#
-node_modules/
-npm-debug.log
-yarn-error.log
+# macOS
+*.DS_Store
+.AppleDouble
+.LSOverride
+.Trashes
+._*
 
-# fastlane
-#
-# It is recommended to not store the screenshots in the git repo. Instead, use fastlane to re-generate the
-# screenshots whenever they are needed.
-# For more information about the recommended setup visit:
-# https://docs.fastlane.tools/best-practices/source-control/
+# Windows
+Thumbs.db
+Desktop.ini
+$RECYCLE.BIN/
 
-**/fastlane/report.xml
-**/fastlane/Preview.html
-**/fastlane/screenshots
-**/fastlane/test_output
+# Save the gitignore content to a file
+file_path_gitignore = '/mnt/data/.gitignore'
+with open(file_path_gitignore, 'w') as file:
+    file.write(gitignore_content)
 
-# Bundle artifact
-*.jsbundle
-
-# Ruby / CocoaPods
-/ios/Pods/
-/vendor/bundle/
-
-# Temporary files created by Metro to check the health of the file watcher
-.metro-health-check*
-
-# testing
-/coverage
+file_path_gitignore
