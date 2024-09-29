@@ -1,3 +1,31 @@
 {
-  "extends": "@react-native/typescript-config/tsconfig.json"
+  "compilerOptions": {
+    "moduleResolution": "node",
+    "jsx": "react-native",
+    "baseUrl": ".",
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "paths": {
+      "@": ["./"],
+      "*": ["src/*"],
+      "tests": ["tests/*"],
+      "@component/*": ["src/component/*"],
+      "@src/*": ["src/*"],
+      "@images/*": ["src/assets/images/*"],
+      "@screens/*": ["./src/screens/*"],
+      "@helper/*": ["src/libs/helper/*"],
+      "@moment/*": ["src/libs/moment/*"],
+      "@i18n/*": ["src/libs/localization/*"],
+      "@constants/*": ["src/libs/constants/*"],
+      "@hooks/*": ["src/hooks/*"],
+      "@store/*": ["src/store/*"]
+    }
+  },
+  "include": ["src/**/*"],
+  "exclude": [
+    "node_modules",
+    "babel.config.js",
+    "metro.config.js",
+    "jest.config.js"
+  ]
 }
