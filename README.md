@@ -179,6 +179,12 @@ Navigate to the project directory and run the following command to start the app
 yarn start
 ```
 
+8. **Video**
+
+```bash
+[Link to Google Drive](https://drive.google.com/drive/u/0/folders/1N-S93lQkfYURFDtXGB_-dvb-A-xA2Qwl)
+```
+
 ## **Testing**
 
 ```bash
