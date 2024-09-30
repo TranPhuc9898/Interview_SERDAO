@@ -21,11 +21,8 @@ const App = () => {
     <PaperProvider>
       <NavigationContainer>
         <Stack.Navigator initialRouteName="Home">
-          <Stack.Screen name="HomeScreen" component={HomeScreen} />
-          <Stack.Screen
-            name="TransactionScreen"
-            component={TransactionScreen}
-          />
+          <Stack.Screen name="Home" component={HomeScreen} />
+          <Stack.Screen name="Transaction" component={TransactionScreen} />
           <Stack.Screen
             name="AddBeneficiary"
             component={AddBeneficiaryScreen}

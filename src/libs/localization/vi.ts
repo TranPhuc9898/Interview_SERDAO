@@ -15,7 +15,14 @@ const vi = {
   invalidIBAN: 'IBAN không hợp lệ',
   firstName: 'Tên',
   lastName: 'Họ',
-  generateIBAN: 'Tạo IBAN',
+  generateIBAN: 'Tạo IBAN tự động',
+  makeTransaction: 'Thực hiện giao dịch',
+  pleaseEnterAmount: 'Vui lòng nhập số tiền',
+  textErrorAmount: 'Số tiền phải lớn hơn 0',
+  insufficientBalance: 'Số dư không đủ',
+  transferMoney: 'Chuyển tiền',
+  choosenBeneficiary: 'Chọn người thừa hưởng',
+  adđBeneficiary: 'Thêm vào người thụ hưởng',
 };
 
 export default vi;

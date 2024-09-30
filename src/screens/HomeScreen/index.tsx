@@ -1,15 +1,8 @@
-{
-  /**
-   * Author: Trần Hồng Phúc
-   *
-   */
-}
-
 import React from 'react';
 import { View, StyleSheet, FlatList } from 'react-native';
-import { useStore } from '@store';
 import { Text, Button, Card } from 'react-native-paper';
 import { useTranslation } from 'react-i18next';
+import { useStore } from '@store';
 
 const HomeScreen: React.FC<any> = ({ navigation }) => {
   const { t } = useTranslation();
@@ -21,28 +14,31 @@ const HomeScreen: React.FC<any> = ({ navigation }) => {
   const recentTransactions = transactions.slice(0, 5);
 
   return (
-    <View style={styles.container}>
+    <View style={styles.container} testID="Home">
       <Text style={styles.balanceText}>
         {t('balance')}: {balance.toFixed(2)} VND
       </Text>
 
       <Button
+        testID="buttonAddBeneficiary"
         mode="contained"
         onPress={() => navigation.navigate('AddBeneficiary')}
         style={styles.button}
       >
-        Thêm Beneficiary
+        {t('addBeneficiary')}
       </Button>
 
       <Button
         mode="contained"
-        onPress={() => navigation.navigate('TransactionScreen')}
+        onPress={() => navigation.navigate('Transaction')}
         style={styles.button}
       >
-        Thực hiện giao dịch
+        {t('makeTransaction')}
       </Button>
 
-      <Text style={styles.heading}>Giao dịch gần đây</Text>
+      <Text style={styles.heading} testID={t('recentTransactions')}>
+        {t('recentTransactions')}
+      </Text>
 
       <FlatList
         data={recentTransactions}
@@ -55,18 +51,22 @@ const HomeScreen: React.FC<any> = ({ navigation }) => {
             <Card style={styles.card}>
               <Card.Content>
                 <Text>
-                  Đến:{' '}
+                  {t('to')}:{'  '}
                   {beneficiary
                     ? `${beneficiary.firstName} ${beneficiary.lastName}`
                     : 'N/A'}
                 </Text>
-                <Text>Số tiền: {item.amount.toFixed(2)} VND</Text>
-                <Text>Ngày: {new Date(item.date).toLocaleString()}</Text>
+                <Text>
+                  {t('amount')}: {item.amount.toFixed(2)} VND
+                </Text>
+                <Text>
+                  {t('date')}: {new Date(item.date).toLocaleString()}
+                </Text>
               </Card.Content>
             </Card>
           );
         }}
-        ListEmptyComponent={<Text>Chưa có giao dịch nào.</Text>}
+        ListEmptyComponent={<Text>{t('noTransactions')}</Text>}
       />
     </View>
   );

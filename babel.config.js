@@ -4,7 +4,7 @@ module.exports = {
     [
       'module-resolver',
       {
-        root: ['./'], // Thay đổi root thành './' để bắt đầu từ thư mục gốc dự án
+        root: ['./src'], // Thay đổi root thành './' để bắt đầu từ thư mục gốc dự án
         extensions: ['.ios.js', '.android.js', '.js', '.ts', '.tsx', '.json'],
         alias: {
           tests: './tests/',
@@ -12,8 +12,7 @@ module.exports = {
           '@src': './src',
           '@apis': './src/apis/',
           '@screens': './src/screens/',
-          '@helper': './src/libs/helper/',
-          '@moment': './src/libs/moment/',
+          '@helper': './src/helper/',
           '@i18n': './src/libs/localization/',
           '@config': './src/libs/config/',
           '@context': './src/libs/context/',
@@ -21,6 +20,7 @@ module.exports = {
           '@hooks': './src/hooks/',
           '@store': './src/store/',
           '@': './',
+          '@types': './src/types',
         },
       },
     ],

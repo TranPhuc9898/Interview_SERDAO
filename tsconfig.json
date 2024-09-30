@@ -13,12 +13,13 @@
       "@src/*": ["src/*"],
       "@images/*": ["src/assets/images/*"],
       "@screens/*": ["./src/screens/*"],
-      "@helper/*": ["src/libs/helper/*"],
+      "@helper/*": ["src/helper/*"],
       "@moment/*": ["src/libs/moment/*"],
       "@i18n/*": ["src/libs/localization/*"],
       "@constants/*": ["src/libs/constants/*"],
       "@hooks/*": ["src/hooks/*"],
-      "@store/*": ["src/store/*"]
+      "@store/*": ["src/store/*"],
+      "@types/*": ["src/types/*"]
     }
   },
   "include": ["src/**/*"],

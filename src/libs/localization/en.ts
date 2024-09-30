@@ -16,6 +16,13 @@ const en = {
   firstName: 'First Name',
   lastName: 'Last Name',
   generateIBAN: 'Generate IBAN',
+  makeTransaction: 'Make Transaction',
+  pleaseEnterAmount: 'Please Enter Amount',
+  textErrorAmount: 'Amount must be greater than 0',
+  insufficientBalance: 'Insufficient Balance',
+  transferMoney: 'Transfer Money',
+  choosenBeneficiary: 'Choosen Beneficiary',
+  adđBeneficiary: 'Adđ Beneficiary',
 };
 
 export default en;

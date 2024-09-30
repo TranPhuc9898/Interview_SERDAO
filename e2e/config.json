@@ -1,0 +1,12 @@
+{
+  "preset": "react-native",
+  "testRunner": "jest-circus/runner",
+  "testEnvironment": "node",
+  "setupFilesAfterEnv": ["./init.js"],
+  "testTimeout": 120000,
+  "globals": {
+    "detox": {
+      "test-runner": "jest-circus/runner"
+    }
+  }
+}

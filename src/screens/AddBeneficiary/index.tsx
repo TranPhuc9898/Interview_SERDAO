@@ -1,44 +1,25 @@
-// src/screens/AddBeneficiaryScreen.tsx
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
-import { useStore } from '@store';
+// Lib
+import { TextInput, Button, Text } from 'react-native-paper';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
-import IBAN from 'iban';
-import { TextInput, Button, Text } from 'react-native-paper';
+// Helper
+import { generateIBAN } from 'helper';
+// Zustand
+import { useStore } from '@store';
+import { useTranslation } from 'react-i18next';
 
-const AddBeneficiaryScreen = ({ navigation }) => {
+const AddBeneficiaryScreen: React.FC<any> = ({ navigation }) => {
+  const { t } = useTranslation();
   const addBeneficiary = useStore(state => state.addBeneficiary);
 
   const BeneficiarySchema = Yup.object().shape({
-    firstName: Yup.string().required('Vui lòng nhập tên'),
-    lastName: Yup.string().required('Vui lòng nhập họ'),
-    iban: Yup.string().required('Vui lòng nhập IBAN'),
+    firstName: Yup.string().required(t('pleaseEnterFirstName')),
+    lastName: Yup.string().required(t('pleaseEnterLastName')),
+    iban: Yup.string().required(t('pleaseEnterIBAN')),
   });
 
-  const generateIBAN = () => {
-    const countryCode = 'GB';
-    const bankIdentifiers = ['NWBK', 'BARC', 'LOYD', 'HSBC']; // Danh sách mã ngân hàng hợp lệ
-
-    const bankIdentifier =
-      bankIdentifiers[Math.floor(Math.random() * bankIdentifiers.length)];
-    const branchCode = Math.floor(Math.random() * 1000000)
-      .toString()
-      .padStart(6, '0'); // 6 chữ số
-    const accountNumber = Math.floor(Math.random() * 100000000)
-      .toString()
-      .padStart(8, '0'); // 8 chữ số
-
-    const bban = bankIdentifier + branchCode + accountNumber;
-
-    try {
-      const iban = IBAN.fromBBAN(countryCode, bban);
-      return iban;
-    } catch (error) {
-      console.error('Error generating IBAN:', error);
-      return generateIBAN(); // Thử lại nếu gặp lỗi
-    }
-  };
   return (
     <View style={styles.container}>
       <Formik
@@ -66,7 +47,7 @@ const AddBeneficiaryScreen = ({ navigation }) => {
         }) => (
           <>
             <TextInput
-              label="Tên"
+              label={t('firstName')}
               onChangeText={handleChange('firstName')}
               onBlur={handleBlur('firstName')}
               value={values.firstName}
@@ -79,7 +60,7 @@ const AddBeneficiaryScreen = ({ navigation }) => {
             )}
 
             <TextInput
-              label="Họ"
+              label={t('lastName')}
               onChangeText={handleChange('lastName')}
               onBlur={handleBlur('lastName')}
               value={values.lastName}
@@ -121,7 +102,7 @@ const AddBeneficiaryScreen = ({ navigation }) => {
               }}
               style={styles.generateButton}
             >
-              Tạo IBAN tự động
+              {t('generateIBAN')}
             </Button>
 
             <Button
@@ -129,7 +110,7 @@ const AddBeneficiaryScreen = ({ navigation }) => {
               onPress={handleSubmit}
               style={styles.submitButton}
             >
-              Thêm Beneficiary
+              {t('adđBeneficiary')}
             </Button>
           </>
         )}

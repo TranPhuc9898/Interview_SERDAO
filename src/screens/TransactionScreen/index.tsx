@@ -1,5 +1,4 @@
 // src/screens/TransactionScreen.tsx
-
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
 import { useStore } from '@store';
@@ -7,18 +6,20 @@ import { Formik } from 'formik';
 import * as Yup from 'yup';
 import { TextInput, Button, Text } from 'react-native-paper';
 import { Picker } from '@react-native-picker/picker';
+import { useTranslation } from 'react-i18next';
 
-const TransactionScreen = ({ navigation }) => {
+const TransactionScreen: React.FC<any> = ({ navigation }) => {
+  const { t } = useTranslation();
   const beneficiaries = useStore(state => state.beneficiaries);
   const addTransaction = useStore(state => state.addTransaction);
   const balance = useStore(state => state.balance);
 
   const TransactionSchema = Yup.object().shape({
-    beneficiaryId: Yup.number().required('Vui lòng chọn Beneficiary'),
+    beneficiaryId: Yup.number().required(t('choosenBeneficiary')),
     amount: Yup.number()
-      .required('Vui lòng nhập số tiền')
-      .positive('Số tiền phải lớn hơn 0')
-      .max(balance, 'Số dư không đủ'),
+      .required(t('pleaseEnterAmount'))
+      .positive(t('textErrorAmount'))
+      .max(balance, t('insufficientBalance')),
   });
 
   return (
@@ -47,14 +48,14 @@ const TransactionScreen = ({ navigation }) => {
           setFieldValue,
         }) => (
           <>
-            <Text>Chọn Beneficiary:</Text>
+            <Text>{t('choosenBeneficiary')}</Text>
             <Picker
               selectedValue={values.beneficiaryId}
               onValueChange={itemValue =>
                 setFieldValue('beneficiaryId', itemValue)
               }
             >
-              <Picker.Item label="Chọn Beneficiary" value="" />
+              <Picker.Item label={t('choosenBeneficiary')} value="" />
               {beneficiaries.map(b => (
                 <Picker.Item
                   key={b.id}
@@ -68,7 +69,7 @@ const TransactionScreen = ({ navigation }) => {
             )}
 
             <TextInput
-              label="Số tiền"
+              label={t('amount')}
               onChangeText={handleChange('amount')}
               onBlur={handleBlur('amount')}
               value={values.amount}
@@ -86,7 +87,7 @@ const TransactionScreen = ({ navigation }) => {
               onPress={handleSubmit}
               style={styles.button}
             >
-              Chuyển tiền
+              {t('transferMoney')}
             </Button>
           </>
         )}
