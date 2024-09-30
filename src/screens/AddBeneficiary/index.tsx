@@ -11,9 +11,11 @@ import { useStore } from '@store';
 import { useTranslation } from 'react-i18next';
 
 const AddBeneficiaryScreen: React.FC<any> = ({ navigation }) => {
+  // Languages
   const { t } = useTranslation();
+  // Store
   const addBeneficiary = useStore(state => state.addBeneficiary);
-
+  // Form
   const BeneficiarySchema = Yup.object().shape({
     firstName: Yup.string().required(t('pleaseEnterFirstName')),
     lastName: Yup.string().required(t('pleaseEnterLastName')),

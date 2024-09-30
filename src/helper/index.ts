@@ -1,5 +1,10 @@
 import IBAN from 'iban';
 
+{
+  /**
+   * Hàm tự động render ra IBAN
+   */
+}
 export const generateIBAN = () => {
   const countryCode = 'GB';
   const bankIdentifiers = ['NWBK', 'BARC', 'LOYD', 'HSBC']; // Danh sách mã ngân hàng hợp lệ

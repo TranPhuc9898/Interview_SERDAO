@@ -9,7 +9,9 @@ import { Picker } from '@react-native-picker/picker';
 import { useTranslation } from 'react-i18next';
 
 const TransactionScreen: React.FC<any> = ({ navigation }) => {
+  // Languages
   const { t } = useTranslation();
+  // Store
   const beneficiaries = useStore(state => state.beneficiaries);
   const addTransaction = useStore(state => state.addTransaction);
   const balance = useStore(state => state.balance);

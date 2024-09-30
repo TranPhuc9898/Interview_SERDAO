@@ -5,7 +5,9 @@ import { useTranslation } from 'react-i18next';
 import { useStore } from '@store';
 
 const HomeScreen: React.FC<any> = ({ navigation }) => {
+  // Languages
   const { t } = useTranslation();
+  // Store
   const balance = useStore(state => state.balance);
   const transactions = useStore(state => state.transactions);
   const beneficiaries = useStore(state => state.beneficiaries);
@@ -89,7 +91,35 @@ const styles = StyleSheet.create({
     marginVertical: 16,
   },
   card: {
-    marginBottom: 8,
+    marginBottom: 16,
+    borderRadius: 8,
+    backgroundColor: '#ffffff', // Màu nền của Card
+    borderWidth: 1, // Thêm viền
+    borderColor: '#e0e0e0', // Màu viền
+    // Loại bỏ các thuộc tính bóng
+    elevation: 0, // Không dùng bóng trên Android
+    shadowColor: 'transparent', // Không dùng bóng trên iOS
+  },
+  beneficiaryText: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    color: '#333',
+    marginBottom: 4,
+  },
+  amountText: {
+    fontSize: 14,
+    color: '#28a745', // Màu xanh cho số tiền
+    marginBottom: 4,
+  },
+  dateText: {
+    fontSize: 12,
+    color: '#888',
+  },
+  emptyText: {
+    textAlign: 'center',
+    marginTop: 20,
+    fontSize: 16,
+    color: '#999',
   },
 });
 

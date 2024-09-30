@@ -130,7 +130,7 @@ To run the script, execute:
 sh fix_ios.sh
 ```
 
-## Setup and Installation
+## **_Setup and Installation_**
 
 To set up and run this project, follow these steps:
 
