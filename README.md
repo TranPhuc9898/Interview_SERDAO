@@ -21,7 +21,11 @@ This project is designed to facilitate transactions with beneficiaries. It allow
    - Users can view a list of all added beneficiaries and select one to perform a transaction.
    - Transaction details, such as beneficiary name and IBAN, are displayed during the transaction process.
 3. **State Preservation**:
+
    - The app uses local storage via `AsyncStorage` to retain the list of beneficiaries, transaction history, and balance even after the app is closed and reopened.
+
+4. **iOS Fix Automation**:
+   - A shell script named **`fix_ios.sh`** has been added to automate the fixing of common iOS build issues and apply patches to native code. This script helps developers quickly resolve common errors when working with native iOS code in React Native projects.
 
 ---
 
@@ -112,14 +116,65 @@ The `iban` library is used for validating and formatting IBANs. This ensures tha
 
 ---
 
+## Shell Script: fix_ios.sh
+
+This project includes a shell script named `fix_ios.sh` that automates fixing iOS build issues in React Native projects. The script performs tasks such as:
+
+- Rebuilding the iOS project.
+- Applying patches to the native code.
+- Resolving common dependency issues.
+
+To run the script, execute:
+
+```bash
+sh fix_ios.sh
+```
+
 ## Setup and Installation
 
-_**Leave this section for you to complete. Add instructions on how to install dependencies, run the app, and any other setup steps required.**_
+To set up and run this project, follow these steps:
 
-```markdown
-# How to Run the Project
+1. **Clone the repository**:
 
-1. Clone the repository
-2. Run `yarn install` to install dependencies
-3. [Add further steps here]
+   ```bash
+   git clone https://github.com/TranPhuc9898/Interview_SERDAO.git
+
+   ```
+
+2. **Install dependencies: After cloning the repository, navigate to the project directory and run the following command to install all necessary dependencies:**
+   ```bash
+    yarn dev
+   ```
+3. **Fix iOS build issues: For iOS, there is a custom shell script included that helps automatically resolve build issues. Simply run:**
+
+```bash
+yarn fix_ios
+```
+
+4. **Open Xcode: After running the fix script, open Xcode and navigate to the .xcworkspace file:**
+
+```bash
+Go to: SerdaoTest.xcworkspace
+```
+
+5. **Configure build destination: In Xcode, follow these steps to ensure the correct device is selected for building:**
+
+```bash
+On the top menu bar, select:
+Product -> Destination -> Show Preferred Run Destination
+Choose a device that has Rosetta enabled.
+```
+
+6. **Clean and build:**
+
+```bash
+In Xcode, clean the project and then build it.
+```
+
+7. **Handle build errors: After the build process, you may encounter errors on the screen. In that case:**
+
+```bash
+Open a new terminal window.
+Navigate to the project directory and run the following command to start the application:
+yarn start
 ```
