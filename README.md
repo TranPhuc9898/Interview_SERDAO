@@ -178,3 +178,9 @@ Open a new terminal window.
 Navigate to the project directory and run the following command to start the application:
 yarn start
 ```
+
+## **Testing**
+
+```bash
+1. Currently, I still cannot run and show the testing part to the employer, because the detox library still has some errors with react native Filpper and I have not found a solution. Thank you, employer/company, for viewing my project.
+```

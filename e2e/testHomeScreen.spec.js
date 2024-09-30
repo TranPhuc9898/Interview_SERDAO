@@ -5,6 +5,6 @@ describe('Home Screen', () => {
 
   it('should display "Current Balance:" text', async () => {
     // Kiểm tra xem có text 'Current Balance' trong màn hình không
-    await expect(element(by.text('Current Balance:'))).toBeVisible();
+    await expect(element(by.text('Số Dư Hiện Tại: '))).toBeVisible();
   });
 });
