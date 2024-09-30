@@ -182,7 +182,7 @@ yarn start
 8. **Video**
 
 ```bash
-[Link to Google Drive](https://drive.google.com/drive/u/0/folders/1N-S93lQkfYURFDtXGB_-dvb-A-xA2Qwl)
+https://drive.google.com/drive/u/0/folders/1N-S93lQkfYURFDtXGB_-dvb-A-xA2Qwl
 ```
 
 ## **Testing**
